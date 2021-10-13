@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~4.3.0"
+  },
+  "fitbit": {
+    "appUUID": "efb986c4-c19e-41f9-b60e-12c771a46ce7",
+    "appType": "clockface",
+    "appDisplayName": "Space Clock Versa 1 and 2",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#607d8b",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate"
+    ],
+    "buildTargets": [
+      "meson",
+      "mira"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Space Clock Versa 1 and 2"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}

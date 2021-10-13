@@ -1,0 +1,98 @@
+#clockLabel {
+  font-size: 105;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50%;
+  y: 55%;
+  text-anchor: middle;
+  fill: white;
+}
+
+#clockLabel2 {
+  font-size: 107;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 52%;
+  y: 57%;
+  text-anchor: middle;
+  fill: black;
+}
+
+#dateLabel {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50%;
+  y: 25%;
+  text-anchor: middle;
+  fill: white;
+}
+
+#dateLabel2 {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50%+2;
+  y: 25%+3;
+  text-anchor: middle;
+  fill: black;
+}
+
+#stepsLabel {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50;
+  y: 283;
+
+  fill: white;
+}
+
+#stepsLabel2 {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 52;
+  y: 285;
+
+  fill: black;
+}
+
+#heartLabel {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50;
+  y: 205;
+
+  fill: white;
+}
+
+#heartLabel2 {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 52;
+  y: 207;
+
+  fill: black;
+}
+
+#caloriesLabel {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 50;
+  y: 243;
+
+  fill: white;
+}
+
+#caloriesLabel2 {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  x: 52;
+  y: 245;
+  fill: black;
+}
