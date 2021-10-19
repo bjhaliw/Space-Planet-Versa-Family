@@ -26,11 +26,13 @@ const heartLabel2 = document.getElementById("heartLabel2")
 let bps = undefined
 let hrm = undefined
 
+// If the watch has a Body Presence Sensor
 if (BodyPresenceSensor) {
   bps = new BodyPresenceSensor();
   bps.start()
 }
 
+// If the watch has a Heart Rate Sensor and we have permission to use it
 if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
   hrm = new HeartRateSensor();
   
@@ -43,28 +45,30 @@ if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
   heartLabel2.text = "--";
 }
 
+// Check if HRM was created, and then stop the capturing of the heart rate
 function stopHRM()  {
   if (typeof(hrm) !== "undefined") {
       hrm.stop()
-        heartLabel.text = `--`;
-        heartLabel2.text = `--`;
+      heartLabel.text = `--`;
+      heartLabel2.text = `--`;
   }
 }
 
+// Check to see if HRM was created, and then start capturing heart rate
 function startHRM () {
-  console.log("in hrm")
   if (typeof(hrm) !== "undefined") {
       hrm.start()
-    console.log("starting")
   }
 }
 
+// Get all of the stats for the user if we have permission, or show --
 function getAllStats() {
     if (appbit.permissions.granted("access_activity")) {
       stepsLabel.text = `${today.adjusted.steps}`;
       caloriesLabel.text = `${today.adjusted.calories}`
       stepsLabel2.text = `${today.adjusted.steps}`;
       caloriesLabel2.text = `${today.adjusted.calories}`
+      
     } else {
       stepsLabel.text = "--";
       caloriesLabel.text = "--";
@@ -82,28 +86,24 @@ clock.ontick = (evt) => {
     // 12h format
     hours = hours % 12 || 12;
   } else {
-      hours = util.zeroPad(hours);
+    hours = util.zeroPad(hours);
   }
 
   let mins = util.zeroPad(today.getMinutes());
-  let secs = util.zeroPad(today.getSeconds());
-   
+
+  // Display the clock HH:MM
   clockLabel.text = `${hours}:${mins}`
   clockLabel2.text = `${hours}:${mins}`
   
-  console.log(typeof(bps))
-  console.log(display.on)
-  console.log(bps.present)
-  
   if (typeof(bps) !== undefined) {
-    console.log("in the true")
-    if(bps.present && display.on) {
+    if(bps.present && display.on && !hrm.activated) {
       startHRM()
-    } else {
+    } else if (!bps.present || !display.on) {
       stopHRM()
     }
   }
   
+  // Display the Date DDD MM dd
   dateLabel.text = `${evt.date.toString().substring(0, 10)}`
   dateLabel2.text = `${evt.date.toString().substring(0, 10)}`
   
